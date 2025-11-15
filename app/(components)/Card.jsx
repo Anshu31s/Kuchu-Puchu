@@ -1,48 +1,74 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 
 const Card = ({ onNext, onBack }) => {
+    // Simple array of images
+    const images = [
+        "/pic1.jpg",
+        "/pic2.gif",
+        "/pic3.jpg"
+    ];
+
+    const [index, setIndex] = useState(0);
+
+    const prev = () => {
+        setIndex((index - 1 + images.length) % images.length);
+    };
+
+    const next = () => {
+        setIndex((index + 1) % images.length);
+    };
+
     return (
         <div className="w-full h-full">
             <div className="relative min-h-screen flex flex-col justify-center items-center bg-[#FBF5F4] p-2 sm:p-4 overflow-hidden">
+
                 {/* Main Card */}
-                <div
-                    className="relative w-full max-w-[620px] rounded-2xl border-2 border-[#e7d8d2] bg-white/80 shadow-2xl flex flex-col overflow-hidden backdrop-blur-sm"
-                >
+                <div className="relative w-full max-w-[620px] rounded-2xl border-2 border-[#e7d8d2] bg-white/80 shadow-2xl flex flex-col overflow-hidden backdrop-blur-sm">
+
                     {/* Header */}
                     <div className="px-8 sm:px-10 pt-6 text-[#2c2c2c] font-b">
-                        <h1
-                            className="text-[clamp(1.8rem,6vw,3.2rem)] leading-none text-[#d84b5a] font-semibold text-center"
-                            style={{ opacity: 1 }}
-                        >
+                        <h1 className="text-[clamp(1.8rem,6vw,3.2rem)] leading-none text-[#d84b5a] font-semibold text-center">
                             Special Cards
                         </h1>
 
                         <div className="mt-3 border-t-2 border-b-2 border-[#222]/20"></div>
 
-                        <div
-                            className="flex justify-between mt-2 text-xs sm:text-sm text-[#444]"
-                        >
-                            <span>
-                                <span className="font-bold">FROM:</span> Me
-                            </span>
-                            <span>
-                                <span className="font-bold">TO:</span> My Love
-                            </span>
+                        <div className="flex justify-between mt-2 text-xs sm:text-sm text-[#444]">
+                            <span><span className="font-bold">FROM:</span> Me</span>
+                            <span><span className="font-bold">TO:</span> My Love</span>
                         </div>
                     </div>
 
-                    {/* Image Section */}
+                    {/* IMAGE CAROUSEL */}
                     <div className="mx-6 sm:mx-8 my-4 border-2 border-[#2c2c2c]/30 rounded-xl bg-[#faf4f3] flex-1 relative overflow-hidden flex flex-col items-center justify-center p-3">
 
+                        {/* Image */}
                         <div className="relative w-full aspect-4/3 flex items-center justify-center overflow-hidden">
+
                             <img
-                                src="./pic1-CzYwUIkT.jpg"
-                                alt="Photo 1"
-                                className="absolute inset-0 w-full h-full object-cover rounded-xl shadow-xl ring-1 ring-[#d84b5a]/30"
+                                src={images[index]}
+                                alt="carousel"
+                                className="w-full h-full object-cover rounded-xl shadow-xl ring-1 ring-[#d84b5a]/30"
                             />
+
+                            {/* Left Arrow */}
+                            <button
+                                onClick={prev}
+                                className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/70 border border-[#d84b5a]/50 rounded-full w-9 h-9 flex items-center justify-center text-lg text-[#d84b5a]"
+                            >
+                                ‹
+                            </button>
+
+                            {/* Right Arrow */}
+                            <button
+                                onClick={next}
+                                className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/70 border border-[#d84b5a]/50 rounded-full w-9 h-9 flex items-center justify-center text-lg text-[#d84b5a]"
+                            >
+                                ›
+                            </button>
                         </div>
 
                         {/* Bottom Caption */}
@@ -55,56 +81,30 @@ const Card = ({ onNext, onBack }) => {
                             </p>
                         </div>
 
-                        {/* Top-left small heart stamp */}
+                        {/* Decorations */}
                         <div className="absolute left-3 top-3 text-[#e74c5b] opacity-30">
-                            <svg
-                                width="40"
-                                height="40"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="1"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                className="drop-shadow-sm"
-                                style={{ transform: "rotate(5.66deg)" }}
-                            >
+                            <svg width="40" height="40" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" strokeWidth="1"
+                                strokeLinecap="round" strokeLinejoin="round"
+                                style={{ transform: "rotate(5.66deg)" }}>
                                 <path d="M13 2.1c4.6 3.4 5.9 10.2 3.1 14.8-2.1 3.4-6.2 5.1-10.2 4.3-.4-2.4.4-4.8 2.2-6.5C10 13 11.4 12.1 13 11.1"></path>
                                 <path d="M13 11.1c-3.1-2.9-4.3-7.5-2.2-10.8"></path>
-                                <path d="m14.5 12.5 6 6"></path>
-                                <path d="m18 16 2.5 2.5"></path>
                             </svg>
                         </div>
 
-                        {/* Bottom-right filled heart */}
                         <div className="absolute right-3 bottom-3 text-[#e74c5b] opacity-50">
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" style={{ transform: "scale(1.086)" }}>
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12.003 21.352c-.347-.19-8.32-4.88-8.32-11.446 0-3.08 2.498-5.578 5.578-5.578 1.83 0 3.538.88 4.618 2.26a4.954 4.954 0 0 1 4.618-2.26c3.08 0 5.578 2.498 5.578 5.578 0 6.565-7.972 11.255-8.32 11.446a.998.998 0 0 1-1.092 0z"></path>
                             </svg>
                         </div>
-
-                        {/* Left Arrow */}
-                        <button className="absolute left-3 top-1/2 -translate-y-1/2 bg-[#fff5f4]/70 border border-[#d84b5a]/50 rounded-full w-9 h-9 flex items-center justify-center text-lg text-[#d84b5a] hover:bg-[#d84b5a] hover:text-white transition-all duration-300 shadow-sm backdrop-blur-md">
-                            ‹
-                        </button>
-
-                        {/* Right Arrow */}
-                        <button className="absolute right-3 top-1/2 -translate-y-1/2 bg-[#fff5f4]/70 border border-[#d84b5a]/50 rounded-full w-9 h-9 flex items-center justify-center text-lg text-[#d84b5a] hover:bg-[#d84b5a] hover:text-white transition-all duration-300 shadow-sm backdrop-blur-md">
-                            ›
-                        </button>
-
                     </div>
 
                     {/* Footer */}
                     <div className="px-8 sm:px-10 pb-6 pt-3 border-t-[1.5px] border-[#2c2c2c]/20 text-[#2c2c2c]">
                         <div className="flex justify-between items-end">
                             <div className="text-xs sm:text-sm font-b">
-                                <div>
-                                    <span className="font-bold">DATE:</span> Now
-                                </div>
-                                <div>
-                                    <span className="font-bold">VALID FOR:</span> Forever
-                                </div>
+                                <div><span className="font-bold">DATE:</span> Now</div>
+                                <div><span className="font-bold">VALID FOR:</span> Forever</div>
                             </div>
 
                             <div className="text-right">
@@ -112,7 +112,7 @@ const Card = ({ onNext, onBack }) => {
                                     className="block text-base sm:text-lg text-[#d84b5a]"
                                     style={{ fontFamily: '"Dancing Script", cursive' }}
                                 >
-                                    with love, Your Madam Ji 💌
+                                    With love, To Madam Ji 💌
                                 </span>
                             </div>
                         </div>
@@ -136,7 +136,6 @@ const Card = ({ onNext, onBack }) => {
                 </button>
             </div>
         </div>
-
     );
 };
 

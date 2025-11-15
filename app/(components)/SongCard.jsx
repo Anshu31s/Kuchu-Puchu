@@ -16,7 +16,7 @@ const songs = [
   },
   {
     title: "Kya Mujhe Pyaar Hai",
-    gif: "/pic2-DDdxw6b7.gif",
+    gif: "/pic2.gif",
     audio: "/music2-mdcMq3L1.mp3",
   },
 ];
