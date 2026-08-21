@@ -66,7 +66,7 @@ const Page = () => {
   }, [next]);
 
   return (
-    <div className="h-screen w-full bg-[#FAF5F4] overflow-hidden relative">
+    <div className="fixed inset-0 w-full h-dvh bg-[#FAF5F4] overflow-hidden overscroll-none">
     <div
       ref={containerRef}
       className="absolute inset-0 h-full w-full flex items-center justify-center bg-[#FAF5F4] will-change-transform"
@@ -78,13 +78,14 @@ const Page = () => {
 
             <div>
               {/* Small heading */}
-              <h1 className="anim-text text-[clamp(0.9rem,2vw,1.15rem)] font-semibold text-zinc-700 uppercase font-a tracking-[0.25rem]">
+              <h1 className="anim-text text-[clamp(0.9rem,2vw,1.15rem)] font-semibold text-zinc-700 uppercase font-a tracking-[0.25rem] pl-1">
                 for my
               </h1>
 
               {/* Name */}
-              <h1 className="anim-text text-[clamp(1.2rem,5vw,2.5rem)] text-[#f7b5cf] font-b uppercase font-extrabold tracking-[0.5rem]">
-                kuchupuchu ✦
+              <h1 className="anim-text text-[clamp(1.2rem,5vw,2.5rem)] text-[#f7b5cf] font-b uppercase font-extrabold tracking-[0.5rem] pl-2 relative inline-block">
+                kuchupuchu
+                <span className="absolute left-full top-1/2 -translate-y-1/2 ml-2 tracking-normal text-[clamp(1rem,3vw,2rem)]">✦</span>
               </h1>
             </div>
 

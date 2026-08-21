@@ -138,12 +138,7 @@ const TicTac = ({ onNext, onBack }) => {
           ← Back
         </button>
 
-        <button
-          onClick={onNext}
-          className="text-gray-700 bg-[#F7D9E6] px-6 py-2.5 rounded-full text-sm sm:text-base shadow-sm hover:bg-[#F7B5CF] transition-all"
-        >
-          Next →
-        </button>
+
       </div>
 
     </div>
