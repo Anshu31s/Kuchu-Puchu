@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const Card = ({ onNext, onBack }) => {
     // Simple array of images
@@ -22,11 +23,23 @@ const Card = ({ onNext, onBack }) => {
     };
 
     return (
-        <div className="w-full h-full">
-            <div className="relative h-full overflow-y-auto flex flex-col justify-center items-center bg-[#FBF5F4] p-4 py-8 sm:p-8">
+        <div className="w-full h-full relative">
+            <div className="relative h-full overflow-y-auto flex flex-col justify-center items-center bg-[#FBF5F4] p-4 pt-16 pb-20 sm:p-8 sm:pt-20 sm:pb-24">
+
+                {/* Top Left Back Button */}
+                <div className="absolute top-4 sm:top-8 left-4 sm:left-8 z-50">
+                    <button
+                        onClick={onBack}
+                        className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full shadow-[0_4px_12px_rgba(255,182,193,0.4)] flex items-center justify-center text-[#ff4d6d] hover:bg-[#fff0f4] transition-all"
+                    >
+                        <ChevronLeft size={24} strokeWidth={2.5} />
+                    </button>
+                </div>
+
+
 
                 {/* Main Card */}
-                <div className="relative w-full max-w-[620px] rounded-2xl border-2 border-[#e7d8d2] bg-white/80 shadow-2xl flex flex-col overflow-hidden backdrop-blur-sm">
+                <div className="relative w-full max-w-[620px] rounded-2xl border-2 border-[#e7d8d2] bg-white/80 shadow-2xl flex flex-col overflow-hidden backdrop-blur-sm z-10">
 
                     {/* Header */}
                     <div className="px-8 sm:px-10 pt-6 text-[#2c2c2c] font-b">
@@ -37,8 +50,8 @@ const Card = ({ onNext, onBack }) => {
                         <div className="mt-3 border-t-2 border-b-2 border-[#222]/20"></div>
 
                         <div className="flex justify-between mt-2 text-xs sm:text-sm text-[#444]">
-                            <span><span className="font-bold">FROM:</span> Me</span>
-                            <span><span className="font-bold">TO:</span> My Love</span>
+                            <span><span className="font-bold">FROM:</span>Suar</span>
+                            <span><span className="font-bold">TO:</span>Chashmish</span>
                         </div>
                     </div>
 
@@ -103,7 +116,7 @@ const Card = ({ onNext, onBack }) => {
                     <div className="px-8 sm:px-10 pb-6 pt-3 border-t-[1.5px] border-[#2c2c2c]/20 text-[#2c2c2c]">
                         <div className="flex justify-between items-end">
                             <div className="text-xs sm:text-sm font-b">
-                                <div><span className="font-bold">DATE:</span> Now</div>
+                                <div><span className="font-bold">DATE:</span> 22 Aug 2026</div>
                                 <div><span className="font-bold">VALID FOR:</span> Forever</div>
                             </div>
 
@@ -119,22 +132,17 @@ const Card = ({ onNext, onBack }) => {
                     </div>
                 </div>
 
-                {/* Navigation Buttons */}
-                <div className="w-full max-w-[620px] flex justify-between mt-6 px-2 shrink-0">
+                {/* Bottom Center Next Button */}
+                <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-50">
                     <button
-                        className="text-gray-700 bg-[#9EC1E6] px-5 py-2 rounded-full text-sm shadow-md hover:bg-[#7fa8ce] transition-all z-20"
-                        onClick={onBack}
-                    >
-                        ← Back
-                    </button>
-
-                    <button
-                        className="text-gray-700 bg-[#F7D9E6] px-5 py-2 rounded-full text-sm shadow-md hover:bg-[#F7B5CF] transition-all z-20"
                         onClick={onNext}
+                        className="bg-white px-6 py-3 sm:px-8 sm:py-3.5 rounded-full shadow-[0_8px_24px_rgba(255,182,193,0.5)] flex items-center justify-center gap-2 text-[#ff4d6d] hover:bg-[#fff0f4] hover:-translate-y-1 transition-all font-bold tracking-wide uppercase text-xs sm:text-sm font-b"
                     >
-                        Next →
+                        <span>Next</span>
+                        <ChevronRight size={20} strokeWidth={3} />
                     </button>
                 </div>
+
             </div>
         </div>
     );

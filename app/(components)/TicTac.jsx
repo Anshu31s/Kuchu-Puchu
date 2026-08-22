@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useNextStore } from "../utils/zustand";
 import gsap from 'gsap';
+import { ChevronLeft } from 'lucide-react';
 
 const TicTac = ({ onNext, onBack }) => {
   const [clickedCells, setClickedCells] = React.useState(false);
@@ -36,10 +37,20 @@ const TicTac = ({ onNext, onBack }) => {
     }, 1200);
   }
   return (
-    <div className="select-none w-full h-full overflow-y-auto flex flex-col items-center justify-between bg-[#f6efec] py-8">
+    <div className="select-none w-full h-full overflow-y-auto flex flex-col items-center justify-center relative bg-[#f6efec] py-8">
+
+      {/* Top Left Back Button */}
+      <div className="absolute top-4 sm:top-8 left-4 sm:left-8 z-50">
+        <button
+          onClick={onBack}
+          className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full shadow-[0_4px_12px_rgba(255,182,193,0.4)] flex items-center justify-center text-[#ff4d6d] hover:bg-[#fff0f4] transition-all"
+        >
+          <ChevronLeft size={24} strokeWidth={2.5} />
+        </button>
+      </div>
 
       {/* Heading */}
-      <h2 className="text-[clamp(1.2rem,3.5vw,1.8rem)] text-[#d84b5a] font-semibold mt-10 font-a">
+      <h2 className="text-[clamp(1.2rem,3.5vw,1.8rem)] text-[#d84b5a] font-semibold mb-8 font-a">
         Fill the heart to continue
       </h2>
 
@@ -129,17 +140,7 @@ const TicTac = ({ onNext, onBack }) => {
         </div>
       </div>
 
-      {/* Buttons Bottom */}
-      <div className="w-full max-w-2xl flex justify-between items-center px-6 pb-6">
-        <button
-          onClick={onBack}
-          className="text-gray-700 bg-[#9EC1E6] px-6 py-2.5 rounded-full text-sm sm:text-base shadow-sm hover:bg-[#7fa8ce] transition-all"
-        >
-          ← Back
-        </button>
 
-
-      </div>
 
     </div>
   );

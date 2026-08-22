@@ -8,6 +8,7 @@ import Letter from './(components)/Letter';
 import Card from './(components)/Card';
 import SongCard from './(components)/SongCard';
 import { useNextStore } from "./utils/zustand";
+import { ChevronRight } from "lucide-react";
 
 const Page = () => {
   const containerRef = useRef(null);  
@@ -85,32 +86,32 @@ const Page = () => {
               {/* Name */}
               <h1 className="anim-text text-[clamp(1.2rem,5vw,2.5rem)] text-[#f7b5cf] font-b uppercase font-extrabold tracking-[0.5rem] pl-2 relative inline-block">
                 kuchupuchu
-                <span className="absolute left-full top-1/2 -translate-y-1/2 ml-2 tracking-normal text-[clamp(1rem,3vw,2rem)]">✦</span>
+                <span className="absolute left-full top-1/2 -translate-y-1/2 ml-2 tracking-normal text-[clamp(1rem,3vw,2rem)]">✨</span>
               </h1>
             </div>
 
-            {/* “I am really” */}
-            <h1 className="anim-text text-[clamp(3rem,10vw,5.8rem)] text-[#f7b5cf] font-b italic font-bold leading-none relative">
-              I{" "}
+            {/* "I made something... just" */}
+            <h1 className="anim-text text-[clamp(2.5rem,8vw,4.5rem)] text-[#f7b5cf] font-b italic font-bold leading-none px-2 relative">
+              I made{" "}
               <span className="relative inline-block">
-                am
-                <span className="absolute top-[60%] left-1/2 -translate-x-1/2 
-                             -rotate-6 text-[clamp(0.6rem,2vw,0.85rem)]
-                             text-black bg-[#f7d9e6] px-2 py-px
-                             font-normal font-a rounded-md not-italic">
-                  really
+                something…
+                <span className="absolute top-[55%] left-[60%] -translate-x-1/2 
+                             -rotate-6 text-[clamp(0.75rem,2.5vw,1.1rem)]
+                             text-black bg-[#f7d9e6] px-3 py-0.5
+                             font-normal font-a rounded-md not-italic tracking-normal shadow-sm">
+                  just
                 </span>
               </span>
             </h1>
 
-            {/* Sorry */}
-            <h1 className="anim-text text-[clamp(2.5rem,8vw,5rem)] text-zinc-900 uppercase font-black font-a leading-tight">
-              sorry
+            {/* FOR YOU */}
+            <h1 className="anim-text text-[clamp(2rem,6vw,4rem)] text-zinc-900 uppercase font-black font-a leading-tight mt-2">
+              FOR YOU
             </h1>
 
             {/* Description*/}
-            <p className="anim-text text-[clamp(12px,1.6vw,15px)] leading-relaxed text-zinc-700 font-a max-w-[320px] ">
-              I made this specially just for you, for moments when you're mad. Take a deep breath, read slowly, and check{" "}
+            <p className="anim-text text-[clamp(12px,1.6vw,15px)] leading-relaxed text-zinc-700 font-a max-w-[320px]">
+              I made this specially just for you, Take a deep breath and check{" "}
               <span className="font-semibold text-[#f7b5cf]">what I made for you 💗</span>.
             </p>
 
@@ -130,11 +131,10 @@ const Page = () => {
             {/* Button */}
             <button
               onClick={handleNext}
-              className="anim-text cursor-pointer rounded-full text-sm
-                     font-medium  px-6 py-2.5
-                     bg-[#f7d9e6] text-zinc-700 shadow-md"
+              className="anim-text cursor-pointer bg-white px-6 py-3 sm:px-8 sm:py-3.5 rounded-full shadow-[0_8px_24px_rgba(255,182,193,0.5)] flex items-center justify-center gap-2 text-[#ff4d6d] hover:bg-[#fff0f4] hover:-translate-y-1 transition-all font-bold tracking-wide uppercase text-xs sm:text-sm font-b"
             >
-              Next →
+              <span>Next</span>
+              <ChevronRight size={20} strokeWidth={3} />
             </button>
           </div>
         </div>

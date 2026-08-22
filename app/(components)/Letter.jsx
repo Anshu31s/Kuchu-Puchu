@@ -3,13 +3,26 @@
 import React from "react";
 import Image from "next/image";
 import HeartStamp from "./stamp";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const Letter = ({ onNext, onBack }) => {
   return (
-   <div className="w-full h-full overflow-y-auto flex flex-col items-center justify-between bg-[radial-gradient(circle_at_top_left,#fff8f8,#fbe9e9)] py-8">
+   <div className="w-full h-full overflow-y-auto flex flex-col items-center justify-center bg-[radial-gradient(circle_at_top_left,#fff8f8,#fbe9e9)] pt-16 pb-20 sm:pt-20 sm:pb-24 relative">
   
+  {/* Top Left Back Button */}
+  <div className="absolute top-4 sm:top-8 left-4 sm:left-8 z-50">
+    <button
+      onClick={onBack}
+      className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full shadow-[0_4px_12px_rgba(255,182,193,0.4)] flex items-center justify-center text-[#ff4d6d] hover:bg-[#fff0f4] transition-all"
+    >
+      <ChevronLeft size={24} strokeWidth={2.5} />
+    </button>
+  </div>
+
+
+
   {/* CONTENT WRAPPER */}
-  <div className="flex-1 w-full flex flex-col items-center justify-center p-4 sm:p-6 relative">
+  <div className="flex-1 w-full flex flex-col items-center justify-center p-4 sm:p-6 relative z-10">
     
     {/* Letter Card */}
     <div className="relative bg-white rounded-3xl shadow-xl max-w-2xl w-full text-center px-6 py-8">
@@ -28,14 +41,13 @@ const Letter = ({ onNext, onBack }) => {
       {/* Sub heading */}
       <h3 className="font-extrabold italic text-[#f7b5cf] mb-4 font-b 
                      text-[clamp(1rem,4vw,1.3rem)]">
-        My Dearest Pinak,
+        My Dearest Chashmish,
       </h3>
 
       {/* Body text */}
       <p className="leading-relaxed text-[#3b3b46] font-a max-w-xl mx-auto mb-4
                     text-[clamp(0.9rem,2.8vw,1.05rem)]">
-        I&apos;m sorry for the moments I hurt you.  
-        You mean everything to me — and I just want your smile back. 💗
+        I genuinely care about you. You&apos;ve become a really important part of my life, and I&apos;m grateful for every little moment we share. I just hope I can keep making you smile and give you more reasons to stay happy 💗
       </p>
 
       {/* Closing line */}
@@ -61,20 +73,14 @@ const Letter = ({ onNext, onBack }) => {
     </div>
   </div>
 
-  {/* Buttons */}
-  <div className="w-full max-w-2xl flex justify-between items-center px-6 pb-6">
-    <button
-      onClick={onBack}
-      className="text-gray-700 bg-[#9EC1E6] px-6 py-2.5 rounded-full text-sm sm:text-base shadow-sm hover:bg-[#7fa8ce] transition-all"
-    >
-      ← Back
-    </button>
-
+  {/* Bottom Center Next Button */}
+  <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-50">
     <button
       onClick={onNext}
-      className="text-gray-700 bg-[#F7D9E6] px-6 py-2.5 rounded-full text-sm sm:text-base shadow-sm hover:bg-[#F7B5CF] transition-all"
+      className="bg-white px-6 py-3 sm:px-8 sm:py-3.5 rounded-full shadow-[0_8px_24px_rgba(255,182,193,0.5)] flex items-center justify-center gap-2 text-[#ff4d6d] hover:bg-[#fff0f4] hover:-translate-y-1 transition-all font-bold tracking-wide uppercase text-xs sm:text-sm font-b"
     >
-      Next →
+      <span>Next</span>
+      <ChevronRight size={20} strokeWidth={3} />
     </button>
   </div>
 </div>
