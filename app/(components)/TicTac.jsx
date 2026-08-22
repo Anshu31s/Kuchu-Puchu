@@ -36,7 +36,7 @@ const TicTac = ({ onNext, onBack }) => {
     }, 1200);
   }
   return (
-    <div className="select-none w-full h-screen flex flex-col items-center justify-between bg-[#f6efec]">
+    <div className="select-none w-full h-full overflow-y-auto flex flex-col items-center justify-between bg-[#f6efec] py-8">
 
       {/* Heading */}
       <h2 className="text-[clamp(1.2rem,3.5vw,1.8rem)] text-[#d84b5a] font-semibold mt-10 font-a">

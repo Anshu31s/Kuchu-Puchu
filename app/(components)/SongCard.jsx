@@ -196,21 +196,21 @@ const SongCard = ({ onBack }) => {
           {/* Player Controls */}
           <div className="flex items-center justify-center gap-4 sm:gap-5">
             <button
-              className="w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-white border-2 border-[#d84b5a] text-[#d84b5a] text-lg sm:text-xl shadow-md hover:bg-[#d84b5a] hover:text-white transition-all"
+              className="w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-white border-2 border-[#d84b5a] text-[#d84b5a] text-lg sm:text-xl shadow-md hover:bg-[#d84b5a] hover:text-white transition-all flex items-center justify-center"
               onClick={prevSong}
             >
               ⏮
             </button>
 
             <button
-              className="w-14 h-14 sm:w-18 sm:h-18 rounded-full bg-linear-to-br from-[#d84b5a] to-[#c03d4a] text-white text-2xl sm:text-3xl shadow-lg hover:shadow-xl border-2 border-[#a83545] transition-all flex items-center justify-center"
+              className={`w-14 h-14 sm:w-18 sm:h-18 rounded-full bg-linear-to-br from-[#d84b5a] to-[#c03d4a] text-white text-2xl sm:text-3xl shadow-lg hover:shadow-xl border-2 border-[#a83545] transition-all flex items-center justify-center ${!playing ? 'pl-1' : ''}`}
               onClick={togglePlay}
             >
               {playing ? "⏸" : "▶"}
             </button>
 
             <button
-              className="w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-white border-2 border-[#d84b5a] text-[#d84b5a] text-lg sm:text-xl shadow-md hover:bg-[#d84b5a] hover:text-white transition-all"
+              className="w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-white border-2 border-[#d84b5a] text-[#d84b5a] text-lg sm:text-xl shadow-md hover:bg-[#d84b5a] hover:text-white transition-all flex items-center justify-center"
               onClick={nextSong}
             >
               ⏭

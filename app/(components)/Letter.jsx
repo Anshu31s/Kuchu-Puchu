@@ -6,7 +6,7 @@ import HeartStamp from "./stamp";
 
 const Letter = ({ onNext, onBack }) => {
   return (
-   <div className="w-full h-screen flex flex-col items-center justify-between bg-[radial-gradient(circle_at_top_left,#fff8f8,#fbe9e9)]">
+   <div className="w-full h-full overflow-y-auto flex flex-col items-center justify-between bg-[radial-gradient(circle_at_top_left,#fff8f8,#fbe9e9)] py-8">
   
   {/* CONTENT WRAPPER */}
   <div className="flex-1 w-full flex flex-col items-center justify-center p-4 sm:p-6 relative">

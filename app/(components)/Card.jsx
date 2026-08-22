@@ -23,7 +23,7 @@ const Card = ({ onNext, onBack }) => {
 
     return (
         <div className="w-full h-full">
-            <div className="relative min-h-screen flex flex-col justify-center items-center bg-[#FBF5F4] p-2 sm:p-4 overflow-hidden">
+            <div className="relative h-full overflow-y-auto flex flex-col justify-center items-center bg-[#FBF5F4] p-4 py-8 sm:p-8">
 
                 {/* Main Card */}
                 <div className="relative w-full max-w-[620px] rounded-2xl border-2 border-[#e7d8d2] bg-white/80 shadow-2xl flex flex-col overflow-hidden backdrop-blur-sm">
@@ -119,21 +119,22 @@ const Card = ({ onNext, onBack }) => {
                     </div>
                 </div>
 
-                {/* Back Button */}
-                <button
-                    className="absolute bottom-3 left-3 sm:bottom-6 sm:left-6 text-gray-700 bg-[#9EC1E6] px-5 py-2 rounded-full text-sm shadow-md hover:bg-[#7fa8ce] transition-all z-20"
-                    onClick={onBack}
-                >
-                    ← Back
-                </button>
+                {/* Navigation Buttons */}
+                <div className="w-full max-w-[620px] flex justify-between mt-6 px-2 shrink-0">
+                    <button
+                        className="text-gray-700 bg-[#9EC1E6] px-5 py-2 rounded-full text-sm shadow-md hover:bg-[#7fa8ce] transition-all z-20"
+                        onClick={onBack}
+                    >
+                        ← Back
+                    </button>
 
-                {/* Next Button */}
-                <button
-                    className="absolute bottom-3 right-3 sm:bottom-6 sm:right-6 text-gray-700 bg-[#F7D9E6] px-5 py-2 rounded-full text-sm shadow-md hover:bg-[#F7B5CF] transition-all z-20"
-                    onClick={onNext}
-                >
-                    Next →
-                </button>
+                    <button
+                        className="text-gray-700 bg-[#F7D9E6] px-5 py-2 rounded-full text-sm shadow-md hover:bg-[#F7B5CF] transition-all z-20"
+                        onClick={onNext}
+                    >
+                        Next →
+                    </button>
+                </div>
             </div>
         </div>
     );
