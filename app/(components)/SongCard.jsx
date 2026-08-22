@@ -82,29 +82,30 @@ const SongCard = ({ onBack }) => {
   const currentGif = gifs[gifIndex];
 
   return (
-    <div className="w-full h-full flex flex-col items-center justify-start bg-gradient-to-br from-[#fdf2f5] to-[#fce4eb] relative overflow-hidden p-4 sm:p-8 font-a">
+    <div className="w-full h-full overflow-y-auto flex flex-col items-center justify-center bg-gradient-to-br from-[#fdf2f5] to-[#fce4eb] p-4 py-8 sm:p-8 relative font-a">
       
-      {/* Top Header */}
-      <div className="w-full max-w-[400px] flex items-center justify-between mt-2 sm:mt-6 mb-4 sm:mb-8 shrink-0 z-20">
+      {/* Top Left Back Button */}
+      <div className="absolute top-4 sm:top-8 left-4 sm:left-8 z-50">
         <button 
           onClick={onBack}
           className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full shadow-[0_4px_12px_rgba(255,182,193,0.4)] flex items-center justify-center text-[#ff4d6d] hover:bg-[#fff0f4] transition-all"
         >
           <ChevronLeft size={24} strokeWidth={2.5} />
         </button>
-        <div className="flex flex-col items-center text-center">
-          <h1 className="text-[clamp(1.1rem,4vw,1.4rem)] font-bold text-[#2c2c2c] leading-tight font-b">
-            Songs Dedicated <span className="text-[#ff4d6d]">To You</span> 💗
-          </h1>
-          <p className="text-[10px] sm:text-xs text-[#8d8d8d] mt-1 tracking-wider uppercase font-medium">
-            Made with love, just for you ♡
-          </p>
-        </div>
-        <div className="w-10 sm:w-12"></div> {/* Spacer for centering */}
+      </div>
+
+      {/* Top Header */}
+      <div className="flex flex-col items-center text-center mb-3 sm:mb-4 shrink-0 z-20">
+        <h1 className="text-[clamp(1.1rem,4vw,1.4rem)] font-bold text-[#2c2c2c] leading-tight font-b">
+          Songs Dedicated <span className="text-[#ff4d6d]">To You</span> 💗
+        </h1>
+        <p className="text-[10px] sm:text-xs text-[#8d8d8d] mt-0.5 tracking-wider uppercase font-medium">
+          Made with love, just for you ♡
+        </p>
       </div>
 
       {/* Main Card */}
-      <div className="relative w-full max-w-[360px] sm:max-w-[400px] bg-white/95 rounded-[32px] sm:rounded-[40px] shadow-[0_12px_40px_rgba(255,182,193,0.3)] p-5 sm:p-8 flex flex-col items-center shrink z-10">
+      <div className="relative w-full max-w-[340px] sm:max-w-[380px] bg-white/95 rounded-[32px] sm:rounded-[40px] shadow-[0_12px_40px_rgba(255,182,193,0.3)] p-5 sm:p-7 flex flex-col items-center shrink-0 z-10">
         
         {/* Album Art */}
         <div className="relative w-[200px] h-[200px] sm:w-[260px] sm:h-[260px] rounded-3xl overflow-hidden shadow-[0_16px_32px_rgba(255,182,193,0.4)] mb-6 shrink-0 border-[4px] border-white/50 bg-[#f8e1e7]">
