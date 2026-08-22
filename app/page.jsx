@@ -74,8 +74,8 @@ const Page = () => {
       style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
     >
       {next === 0 && (
-        <div className="flex w-full h-full justify-center items-center ">
-          <div className="flex flex-col items-center space-y-6 md:space-y-3 px-8 text-center grow">
+        <div className="flex w-full h-full justify-center items-start overflow-y-auto">
+          <div className="flex flex-col items-center space-y-6 md:space-y-3 px-8 text-center py-10">
 
             <div>
               {/* Small heading */}
