@@ -129,10 +129,10 @@ const SongCard = ({ onBack }) => {
   const currentSong = songs[index];
 
   return (
-    <div className="w-full min-h-screen flex flex-col justify-between items-center bg-[#FBF5F4] relative overflow-hidden p-3 sm:p-5">
-      <div className="grow flex items-center justify-center w-full z-10">
+    <div className="w-full h-full flex flex-col items-center justify-center bg-[#FBF5F4] relative overflow-y-auto p-4 py-8 sm:p-8">
+      <div className="flex flex-col items-center justify-center w-full max-w-[700px] my-auto shrink-0 z-10">
         <div
-          className="relative w-full max-w-[700px] bg-white/85 rounded-2xl shadow-2xl border border-[#e7d8d2] px-5 py-8 sm:px-8 sm:py-10 flex flex-col items-center text-center backdrop-blur-sm font-b"
+          className="relative w-full bg-white/85 rounded-2xl shadow-2xl border border-[#e7d8d2] px-5 py-8 sm:px-8 sm:py-10 flex flex-col items-center text-center backdrop-blur-sm font-b"
         >
           <h1 className="text-[clamp(1.2rem,4vw,2.5rem)] text-[#d84b5a] font-bold mb-6">
             Songs Dedicated To You 💗
@@ -223,23 +223,25 @@ const SongCard = ({ onBack }) => {
             Your browser does not support the audio element.
           </audio>
         </div>
+
+        {/* Navigation Buttons */}
+        <div className="w-full flex justify-between mt-6 px-2 shrink-0 z-20">
+          <button
+            className="text-gray-700 bg-[#9EC1E6] px-6 py-2.5 rounded-full text-sm sm:text-base shadow-md hover:bg-[#7fa8ce] transition-all"
+            style={{ fontFamily: "Montserrat, sans-serif" }}
+            onClick={onBack}
+          >
+            ← Back
+          </button>
+
+          <button
+            className="text-gray-700 bg-[#F7D9E6] px-6 py-2.5 rounded-full text-sm sm:text-base shadow-md hover:bg-[#F7B5CF] transition-all"
+            style={{ fontFamily: "Montserrat, sans-serif" }}
+          >
+            Love You ❤️
+          </button>
+        </div>
       </div>
-
-      {/* Navigation Buttons */}
-      <button
-        className="absolute bottom-4 left-4 text-gray-700 bg-[#9EC1E6] px-6 py-2.5 rounded-full text-sm sm:text-base shadow-md hover:bg-[#7fa8ce] transition-all z-20"
-        style={{ fontFamily: "Montserrat, sans-serif" }}
-        onClick={onBack}
-      >
-        ← Back
-      </button>
-
-      <button
-        className="absolute bottom-4 right-4 text-gray-700 bg-[#F7D9E6] px-6 py-2.5 rounded-full text-sm sm:text-base shadow-md hover:bg-[#F7B5CF] transition-all z-20"
-        style={{ fontFamily: "Montserrat, sans-serif" }}
-      >
-        Love You ❤️
-      </button>
 
       {/* Range Thumb Styles */}
       <style>{`
